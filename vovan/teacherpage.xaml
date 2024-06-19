@@ -1,0 +1,55 @@
+﻿<Page x:Class="vovan.teacherpage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:vovan"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="teacherpage">
+
+    <Grid Background="LightGreen">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition ></ColumnDefinition>
+            <ColumnDefinition ></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition ></RowDefinition>
+            <RowDefinition Height="5*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock Name="tb" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Width="200" />
+        <TextBlock Name="tb2" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Width="133" Grid.Column="1" />
+        <TextBlock Name="tb1"  Grid.Column="3" FontSize="20"  HorizontalAlignment="Center" VerticalAlignment="Center" ></TextBlock>
+        <ListBox SelectionChanged="LBST_SelectionChanged"  ItemsSource="{Binding database.Students}" Name="LBST" Grid.Row="1" Background="White" Grid.Column="2">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock  Foreground="Black"  FontWeight="Light"  FontSize="13">
+           <Run Text="{Binding surname}"> </Run>
+           <Run Text="{Binding name}" ></Run>                    
+           <Run Text="{Binding patronymic}" ></Run>
+           <LineBreak></LineBreak>
+           <Run Text="Адрес"></Run>
+           <Run Text="{Binding addres}" ></Run>
+          <Run Text="Телефон"></Run>
+           <Run Text="{Binding telephone}" ></Run>
+           <LineBreak></LineBreak>
+                    </TextBlock>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <StackPanel Name="sp"  Grid.Row="1">
+            <Button HorizontalAlignment="Stretch" Click="Button_Click" Width="100">Выйти</Button>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="1">
+            <Label Margin="0,20,0,0" VerticalAlignment="Center" FontSize="20" >Адрес</Label>
+            <TextBox Name="tbadres" Margin="10"></TextBox>
+            <Label Margin="0,0,0,0" VerticalAlignment="Center" FontSize="20" >Телефон</Label>
+            <TextBox Name="tbphone" Margin="10"></TextBox>
+        </StackPanel>
+        <StackPanel Margin="150,70,0,0"  VerticalAlignment="Center" Grid.Row="1" Grid.ColumnSpan="2">
+            <Button Click="Button_Click_1" Margin="20" Width="120" >Сохранить</Button>
+        </StackPanel>
+        <Frame Grid.ColumnSpan="4" Grid.RowSpan="4" Name="frame" ></Frame>
+    </Grid>
+</Page>

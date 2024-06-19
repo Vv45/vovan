@@ -1,0 +1,42 @@
+﻿<Page x:Class="vovan.CenterAdmin"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:vovan"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="CenterAdmin">
+
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45"></RowDefinition>
+            <RowDefinition Height="135"></RowDefinition>
+            <RowDefinition  Height="45"></RowDefinition>
+            <RowDefinition Height="135"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Button Name="bt1" Click="Button_Click" BorderThickness="0" Background="White" Grid.Column="1" Grid.Row="1" >
+            <Image Source="/Resources/addpeople.png" Height="123" Width="120" ></Image>
+        </Button>
+        <Label Name="lb1" Grid.Column="1" Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Center"  FontSize="25" >Добавить ученика</Label>
+        <Button Name="stat" BorderThickness="0" Background="White" Grid.Column="0" Grid.Row="3">
+            <Image Source="/Resources/statis.png" Height="123" Width="120"></Image>
+        </Button>
+        <Label Name="stat1" Grid.Column="0" Grid.Row="4" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="25">Статистика</Label>
+        <Button Name="uchitel" BorderThickness="0" Background="White" Grid.Column="1" Grid.Row="3">
+            <Image Source="/Resources/adduchitel.png" Width="120" Height="123"></Image>
+        </Button>
+        <Label Name="uchiteladd" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="25">Добавление учителя</Label>
+        <Button Name="out" BorderThickness="0" Background="White" Grid.Column="3" Grid.Row="3" Click="out_Click">
+            <Image Source="/Resources/out.png" Width="120" Height="123"></Image>
+        </Button>
+        <Label Name="outAuto" Grid.Row="4" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="25">Выход</Label>
+        <Frame Name="frame" Grid.ColumnSpan="3" Grid.RowSpan="5"></Frame>
+    </Grid>
+</Page>

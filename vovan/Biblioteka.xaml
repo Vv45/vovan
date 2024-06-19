@@ -1,0 +1,71 @@
+﻿<Page x:Class="vovan.Biblioteka"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d"
+      Title="Biblioteka" Height="639" Width="1056">
+
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="725"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="550"/>
+        </Grid.RowDefinitions>
+        <Button Margin="633,10,33,28" Click="Button_Click_2" Background="White" BorderThickness="0">
+            <Image Source="/Resources/ecxel.ico"></Image>
+        </Button>
+        <TextBlock Text="Экспорт в Excel" Margin="506,21,92,34" Height="25" FontSize="17"/>
+        <Button Grid.Column="1" Grid.Row="1" Width="120" Height="35" Content="Добавить" Click="Button_Click" Margin="65,99,40,386"/>
+        <Button Grid.Column="1" Grid.Row="1" Width="120" Height="35" Content="Выход" Click="Button_Click_3" Margin="65,292,40,193" />
+        <TextBlock Grid.Column="1" x:Name="tbtext"  Margin="0,14,136,27" FontSize="14"></TextBlock>
+        <TextBlock Grid.Column="1" x:Name="tbtext1"  Margin="139,14,0,27" FontSize="14"/>
+        <Button Grid.Column="1" Grid.Row="1" Width="120" Height="35" Content="Удалить" Margin="65,198,40,287" Click="Button_Click_1"/>
+        <Button Grid.Column="1" Content="Выдать книгу" Grid.Row="1" Width="120" Height="35" Click="Button_Click_4"  Margin="118,28,93,487"></Button>
+        <TextBlock Text="Поиск" Width="55" Height="25" FontSize="15" Margin="25,6,645,49"></TextBlock>
+        <Button Width="35" Height="35" Background="White" BorderThickness="0" RenderTransformOrigin="0.458,0.415" Margin="296,22,374,22">
+            <Image Source="/Resources/poisk.ico" ></Image>
+        </Button>
+        <TextBox Grid.Column="0" Width="255" Height="25" HorizontalAlignment="Left" Margin="25" Name="TBsearh" Text="{Binding SearchKeyword, UpdateSourceTrigger=PropertyChanged}"/>
+        <ListBox Grid.Row="1" Grid.Column="0" ItemsSource="{Binding database.books}" x:Name="List" MouseDoubleClick="List_MouseDoubleClick"  SelectionChanged="List_SelectionChanged">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" >
+                        <Run Text="{Binding id}" FontSize="15" FontWeight="Black" BaselineAlignment="Center"/>
+                        <Image Source="{Binding imagee}" Width="75" Height="75" SnapsToDevicePixels="False" Stretch="UniformToFill"/>
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                <TextBlock>                                    
+                        <Run Text="Название: " BaselineAlignment="Center" FontWeight="Black" FontSize="15"/>
+                        <Run Text="{Binding  name}" BaselineAlignment="Center" FontSize="12"/>
+                        <Run Text="Автор:" BaselineAlignment="Center" FontWeight="Black" FontSize="15" />
+                        <Run Text="{Binding author}" BaselineAlignment="Center"  FontSize="12"/>
+                                    <LineBreak BaselineAlignment="Center"></LineBreak>
+                        <Run Text="Издательство:" BaselineAlignment="Center"  FontWeight="Black" FontSize="15"/>
+                        <Run Text="{Binding published}" BaselineAlignment="Center"  FontSize="12"/>
+                        <Run Text="Год издание:" BaselineAlignment="Center"  FontWeight="Black" FontSize="15"/>
+                        <Run Text="{Binding data}" BaselineAlignment="Center"  FontSize="12"/> 
+                                    <LineBreak BaselineAlignment="Center" Background="Black"></LineBreak>
+                        <Run Text="Статус:" BaselineAlignment="Center"  FontWeight="Black" FontSize="15"/>
+                        <Run Text="{Binding status}" BaselineAlignment="Center"  FontSize="12"/>         
+                        <Run Text="ESBN:" BaselineAlignment="Center"  FontWeight="Black" FontSize="15"/>
+                        <Run Text="{Binding isbn}" BaselineAlignment="Center"  FontSize="12"/>
+                                    <LineBreak BaselineAlignment="Center"></LineBreak>
+                        <Run Text="Жанр:" BaselineAlignment="Center"  FontWeight="Black" FontSize="15"/>
+                        <Run Text="{Binding janr}" BaselineAlignment="Center"  FontSize="12"/>
+                        <Run Text="Количество" BaselineAlignment="Center"  FontWeight="Black" FontSize="15"/>
+                        <Run Text="{Binding count}" BaselineAlignment="Center"  FontSize="12"/>
+                                </TextBlock>
+                            </StackPanel>
+                            
+                        </TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Frame Name="frame" Grid.ColumnSpan="2" Grid.RowSpan="2" Margin="0,0,-24,-90"></Frame>
+    </Grid>
+</Page>

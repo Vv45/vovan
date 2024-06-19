@@ -1,0 +1,35 @@
+﻿<Page x:Class="vovan.Properties.Raspisanie"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:vovan.Properties"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Raspisanie">
+
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Calendar Grid.Row="0" SelectedDate="{Binding SelectedDate}" />
+
+        <DataGrid Grid.Row="1" ItemsSource="{Binding Lessons}" AutoGenerateColumns="False" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Время" Binding="{Binding StartTime, StringFormat=hh:mm}" Width="Auto" />
+                <DataGridTextColumn Header="Класс" Binding="{Binding class}" Width="Auto"/>
+                <DataGridTextColumn Header="Понедельник" Binding="{Binding MondayLesson, StringFormat='{}{0}{1}'}" Width="*" />
+                <DataGridTextColumn Header="Вторник" Binding="{Binding MondayLesson, StringFormat='{}{0}{1}'}" Width="*" />
+                <DataGridTextColumn Header="Среда" Binding="{Binding MondayLesson, StringFormat='{}{0}{1}'}" Width="*" />
+                <DataGridTextColumn Header="Четверг" Binding="{Binding MondayLesson, StringFormat='{}{0}{1}'}" Width="*" />
+                <DataGridTextColumn Header="Пятница" Binding="{Binding MondayLesson, StringFormat='{}{0}{1}'}" Width="*" />
+                <DataGridTextColumn Header="Суббота" Binding="{Binding MondayLesson, StringFormat='{}{0}{1}'}" Width="*" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Button Grid.Row="2" Content="Добавить Урок" />
+    </Grid>
+</Page>
